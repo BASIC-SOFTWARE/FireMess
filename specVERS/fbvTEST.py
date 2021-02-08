@@ -56,7 +56,7 @@ try:
 except: registr()
 
 #we write user name (it won't work for the first time)
-username = ' ' + contents.split("\n", 1)[0] + ": "
+username = ' ' + contents.split("\n")[0] + ": "
 
 #close file
 
@@ -89,52 +89,63 @@ def get_input_from_the_user():
         
         if "(yes)" in message:
             message = message.replace("(yes)", "👍")
-        if "(y)" in message:
+        elif "(y)" in message:
             message = message.replace("(y)", "👍")
-        if "(no)" in message:
+        elif "(no)" in message:
             message = message.replace("(no)", "👎")
-        if "(cryingwithlaughter)" in message:
+        elif "(cryingwithlaughter)" in message:
             message = message.replace("(cryingwithlaughter)", "😂")
 
-        if message == "/logout":
+        elif message == "/logout":
             os.remove("account.txt")
             quit()
 
-        if message == "/clear":
+
+#        elif message == "/test":
+#            NameOfChat = input("Type the name of a new chat?:   ")
+
+
+        elif message == "/clear":
             fb.delete('Message', '')
 
-        if message.startswith("/reply"):
+        elif message.startswith("/reply"):
+            original = ""
             message_id = ""
-            message = message.split()
-            if len(message) > 3:
-                time_and_username = message[1] + " " + message[2]
-                for word in message:
-                    if message.index(word) > 2:
+            msg = message.split()
+            if len(msg) > 3:
+                time_and_username = msg[1] + " " + msg[2]
+                edited_message = ""
+                for word in msg:
+                    if msg.index(word) > 2:
+                        edited_message += word + " "
+                for m in messages:
+                    if messages[m]["Message"].startswith(time_and_username):
+                        message_id = m
+                        original = messages[m]["Message"]
+                current_time = str(datetime.now().time())[:8]
+                fb.put(f'Message/{message_id}/', 'Message', original + "↓\n" + current_time + username + edited_message + "↑")
+            message_id = ""
+            original = ""
+            message = ""
+            edited_message = ""
+
+
+        elif message.startswith("/edit"):
+            message_id = ""
+            msg = message.split()
+            if len(msg) > 2:
+                time_and_username = msg[1] + " " + username.replace(":", "").strip()
+                edited_message = ""
+                for word in msg:
+                    if msg.index(word) > 1:
                         edited_message += word + " "
                 for msg in messages:
                     if messages[msg]["Message"].startswith(time_and_username):
                         message_id = msg
-                fb.put(f'Message/{message_id}/', 'Message', time_and_username + username + message + '↓')
-
-
-        if message.startswith("/edit"):
-            message_id = ""
-            message = message.split()
-            if len(message) > 3:
-                time_and_username = message[1] + " " + message[2]
-                if username.strip().startswith(message[2].strip()):
-                    edited_message = ""
-                    for word in message:
-                        if message.index(word) > 2:
-                            edited_message += word + " "
-                    for msg in messages:
-                        if messages[msg]["Message"].startswith(time_and_username):
-                            message_id = msg
-                    fb.put(f'Message/{message_id}/', 'Message', str(datetime.now().time())[:8] + username + "EDITED " + edited_message)
-                else: print("You can only edit your own messages.", username, message[2])
+                fb.put(f'Message/{message_id}/', 'Message', str(datetime.now().time())[:8] + username + "EDITED " + edited_message)
 
         else:
-            Smessage = str(datetime.now().time())[:8] + username + message
+            Smessage = str(datetime.now().time())[:8] + username + message +  '馬鹿野郎' + contents.split("\n")[2]
 
             #it is our data with messages
             data = {
@@ -167,9 +178,14 @@ while True:
                 #it's "cls" for windows, here we'll clear console to everything looks ok
                 system('clear')
                 for message in messages:
-                    print(messages[message]["Message"])
+                    print(messages[message[:message.index("馬鹿野郎")]]["Message"])
 
                 old_data = messages
                 print(result)
             except Exception as e:
                 print(e)
+
+
+###
+#    ABs = #abilities
+#    account = acc_sets + ABs
