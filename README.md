@@ -5,6 +5,7 @@ Here you can chat with whoever you want. Just give your name and go ahead!
 # Setup
 1. First of all download all files through *git clone https://github.com/Potriashka/fbv.git* or by pressing "download zip" button (https://github.com/Potriashka/fbv/archive/main.zip)
 2. To start you need to install all needed Python moduls by printing:
+
 **Windows**
 ```bash
 pip install -r requirements.txt
