@@ -38,6 +38,7 @@ You also have access to emojis
 (y), (yes), (no) or (cryingwithlaughter)
 ```
 Corresponds to 👍, 👍, 👎 or 😂
+
 To edit a message type`/edit` and enter the send time of the message and the new text
 Also there's ability for editing
 ```python
