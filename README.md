@@ -1,48 +1,50 @@
-# FIREBASE VERSION OF FIREMESS
-## It is the terminal messenger developed by Peter Repiev and Bekhruz Niyazov
-### Here you can chat with whoever you want. Just give your name and go ahead!
-##### This project is still in the development and 100% working and completed version is firebaseversion.py but FULL version of firemess is in fbvFULL.py
-#### First of all download all files through *git clone https://github.com/Potriashka/fbv.git* or by pressing "download zip" button (https://github.com/Potriashka/fbv/archive/main.zip)
-#### To start you need to install all needed Python moduls by printing:
-##### Windows
-```python
+# FireMess
+FireMase is a terminal-based messenger developed by Peter Repiev and Bekhruz Niyazov
+Here you can chat with whoever you want. Just give your name and go ahead!
+**This project is still in the development and 100% working and completed version is firebaseversion.py but FULL version of firemess is in fbvFULL.py**
+# Setup
+1. First of all download all files through *git clone https://github.com/Potriashka/fbv.git* or by pressing "download zip" button (https://github.com/Potriashka/fbv/archive/main.zip)
+2. To start you need to install all needed Python moduls by printing:
+**Windows**
+```bash
 pip install -r requirements.txt
-#maybe it won't work and you'll need to install all modules in old way
 ```
-##### Linux
-```python
+**Linux**
+```bash
 pip3 install -r requirements.txt
 ```
-#### and then with a short command
-##### Windows:
-```python
->cd fbv
->cd specVERS
+2. Run FireMess
+**Windows**
+```bash
+cd fbv
+cd specVERS
 py firebaseversion.py
 ```
-##### Linux:
-```python
->cd fbv/
+**Linux**
+```bash
+cd fbv/
 python3 fbvFULL.py
 ```
-#### Notes: 
-###### if you're on windows and you're having some problems contact me by https://github.com/Potriashka/fbv/issues 
-#### You can launch the Messenger and start chatting
-You can print
-```python
+Notes: 
+**if you're having some problems open an issue by clicking the "Issues" button above **
+After you have installed and ran the messenger
+Type
+```
 /clear
 ```
-and all chat history will be deleted.
-With
-```python
+to delete all chat history.
+You also have access to emojis
+```
 (y), (yes), (no) or (cryingwithlaughter)
 ```
-you can print 👍, 👎 or 😂.
+Corresponds to 👍, 👍, 👎 or 😂
+To edit a message type`/edit` and enter the send time of the message and the new text
 Also there's ability for editing
 ```python
-/edit 14:08:08 (message's time) john (your name) blablabla (new text)
+/edit 12:00:00 blablabla
 ```
-and replying
+To reply type `/reply` and enter the message's time, the username of a person who sent that message and the reply text
 ```python
-/reply 13:03:07 (message's time) john (message's creator) sth (text of a message)
+/reply 12:00:00 john sth
 ```
+Hope you'll enjoy using this messenger!
