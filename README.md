@@ -27,9 +27,9 @@ cd fbv/
 python3 fbvFULL.py
 ```
 Notes: 
-**if you're having some problems open an issue by clicking the "Issues" button above **
-After you have installed and ran the messenger
-Type
+**if you're having some problems open an issue by clicking the "Issues" button above**
+
+After you have installed and ran the messenger type
 ```
 /clear
 ```
